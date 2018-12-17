@@ -27,7 +27,11 @@ public class WebMockTest {
 
     @Test
     public void greetingShouldReturnMessageFromService() throws Exception {
+		//　"greetメソッド"の戻り値を"Hello Mock"とするよう設定。
         when(service.greet()).thenReturn("Hello Mock");
+		// "/greeting"にアクセスした時、以下を検証。
+        // 　　・・・HTTPステータスが200であること
+        // 　　・・・コンテンツの内容に”Hello Mock”が含まれること
         this.mockMvc.perform(get("/greeting")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Hello Mock")));
     }

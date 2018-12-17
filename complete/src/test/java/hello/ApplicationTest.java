@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+// テストケース用メソッドを使用するためのアノテーション。
 @AutoConfigureMockMvc
 public class ApplicationTest {
 

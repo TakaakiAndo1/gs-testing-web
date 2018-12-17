@@ -13,12 +13,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
+// 実際にアプリケーションを動かしたテストをするために、
+// ランダムポート（テスト用の適当なポート）を取得する。
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class HttpRequestTest {
 
+    // ランダムポートを注入する。
     @LocalServerPort
     private int port;
 
+    // アプリケーション
+    // TestRestTemplateは、Springが提供するテスト用のテンプレートで、Springが受信HTTP要求を処理してコントローラーに渡してくれる。
     @Autowired
     private TestRestTemplate restTemplate;
 
